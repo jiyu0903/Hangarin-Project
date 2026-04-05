@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Signup — Hangarin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+            color: #1f2937;
+        }
+
+        .page-shell {
+            width: min(540px, 100%);
+            margin: 24px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 30px 90px rgba(15, 23, 42, 0.08);
+            overflow: hidden;
+        }
+
+        .hero {
+            padding: 32px 32px 24px;
+            background: #4338ca;
+            color: white;
+        }
+
+        .hero h1 {
+            margin: 0 0 10px;
+            font-size: 28px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 520px;
+        }
+
+        .content {
+            padding: 32px;
+        }
+
+        .provider-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 16px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid #e5e7eb;
+            background: #f8fafc;
+            font-size: 14px;
+            color: #334155;
+        }
+
+        .provider-chip svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .form-title {
+            margin-top: 0;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .field-list {
+            display: grid;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .field-list label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #475569;
+        }
+
+        .field-list input {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+            color: #0f172a;
+            background: #f8fafc;
+        }
+
+        .submit-button {
+            width: 100%;
+            margin-top: 24px;
+            padding: 14px 18px;
+            border: none;
+            border-radius: 14px;
+            background: #4338ca;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 18px 30px rgba(67, 56, 202, 0.18);
+        }
+
+        .hint {
+            margin-top: 20px;
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .hint a {
+            color: #4338ca;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="page-shell">
+    <div class="card">
+        <div class="hero">
+            <h1>Finish signing in to Hangarin</h1>
+            <p>We just need a few details to complete your account creation.</p>
+        </div>
+
+        <div class="content">
+            <div class="provider-chip">
+                <span>
+                    <svg viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#4285F4" d="M533.5 278.4c0-17.2-1.5-34.1-4.3-50.4H272.1v95.5h146.9c-6.3 34-25.6 62.8-54.5 82v68h88.1c51.5-47.4 81.9-117.5 81.9-195.1z"/>
+                        <path fill="#34A853" d="M272.1 544.3c73.8 0 135.9-24.4 181.2-66.2l-88.1-68c-24.5 16.4-55.7 26-93.1 26-71.6 0-132.4-48.3-154.1-113.2h-90.4v70.9c45.8 90.5 140 150.5 244.5 150.5z"/>
+                        <path fill="#FBBC05" d="M118 323.4c-10.5-31.4-10.5-65.5 0-96.9V155.6H27.6c-42.6 84.3-42.6 184.9 0 269.2l90.4-70.9z"/>
+                        <path fill="#EA4335" d="M272.1 107.1c39.8 0 75.5 13.7 103.6 40.6l77.7-77.7C412.4 24.1 352.9 0 272.1 0 167.6 0 73.3 60 27.6 150.5l90.4 70.9c21.7-64.9 82.5-113.2 154.1-113.2z"/>
+                    </svg>
+                </span>
+                Signed in with Google
+            </div>
+
+            <h2 class="form-title">Account details</h2>
+            <form method="POST" action=".">
+                {% csrf_token %}
+                <div class="field-list">
+                    {{ form.as_p }}
+                </div>
+                <button type="submit" class="submit-button">Continue to Hangarin</button>
+            </form>
+
+            <div class="hint">
+                Already have an account? <a href="/login/">Sign in with username and password</a> instead.
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
