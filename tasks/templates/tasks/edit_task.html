@@ -1,3 +1,4 @@
+{% load static pwa %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +7,9 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- PWA Meta Tags -->
+    {% progressive_web_app_meta %}
 
     <style>
         body {
@@ -118,6 +122,13 @@
         <a href="/" class="back-link">← Back to Tasks</a>
     </div>
 </div>
+
+<!-- Service Worker Registration -->
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/static/js/serviceworker.js');
+    }
+</script>
 
 </body>
 </html>
